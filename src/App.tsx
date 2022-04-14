@@ -1,24 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Entries from './components/Entries';
+import { Entry, EntryTypes } from './components/Entries/Entries.types';
+import Header from './components/Header';
 
-function App() {
+const App = () => {
+
+  const entries: Array<Entry> = [
+    {
+      id: 1,
+      title: 'Conta de luz',
+      type: EntryTypes.EXPENSE,
+      amount: 10
+    },
+    {
+      id: 2,
+      title: 'Meu Salário',
+      type: EntryTypes.REVENUE,
+      amount: 1000,
+    },
+    {
+      id: 3,
+      title: 'Dividendos',
+      type: EntryTypes.REVENUE,
+      amount: 100
+    }
+  ]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Entries title="lançamentos" entries={entries} />
     </div>
   );
 }
